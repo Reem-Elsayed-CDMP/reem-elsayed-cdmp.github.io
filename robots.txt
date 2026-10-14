@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://reem-elsayed-cdmp.github.io/sitemap.xml
