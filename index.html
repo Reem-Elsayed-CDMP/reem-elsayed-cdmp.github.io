@@ -66,6 +66,14 @@
   src: url(assets/fonts/young-serif.woff2) format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
+@font-face {
+  font-family: 'Cairo';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url(assets/fonts/cairo-greeting.woff2) format('woff2');
+  unicode-range: U+a, U+623, U+627, U+644, U+647, U+64b, U+654;
+}
 </style>
 <style>
   :root{
@@ -306,7 +314,7 @@
   @media (max-width:860px){
     .hero-grid{grid-template-columns:1fr; gap:10px;}
     .photo-stage{margin:0 auto; max-width:360px;}
-    .chip.c1{left:-4%;} .chip.c3{left:-6%;} .chip.c2{right:-4%;} .chip.c4{right:-2%;}
+    .chip.c1{left:-4%;} .chip.c3{left:-1%;} .chip.c2{right:-4%;} .chip.c4{right:-2%;}
     .edu-grid,.cs-grid,.saudi-grid{grid-template-columns:1fr;}
     .cs.flip .cs-grid > .cs-media{order:0;}
     .cert-photo{margin:0;}
@@ -436,6 +444,42 @@ a,button{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
   .tl.dots .tl-item:last-child .tl-dot::after{content:none}
   .tl.dots .tl-item:first-child .tl-dot::after{content:'';position:absolute;inset:-7px;border-radius:50%;border:2px solid var(--green);animation:ping 2.2s ease-out infinite}
 }
+/* personality */
+.hello{font-family:'Young Serif',Georgia,serif;font-size:1.35rem;color:var(--green-ink);margin:0 0 6px;display:flex;align-items:center;gap:8px}
+.wave{display:inline-block;transform-origin:70% 70%}
+.open{display:flex;align-items:center;gap:10px;margin-top:22px;font-size:.98rem;color:var(--muted);font-weight:500}
+.open .dot{width:10px;height:10px;border-radius:50%;background:var(--green);position:relative;flex:none}
+.sec-sub{margin:-22px 0 32px;font-size:1.15rem;color:var(--muted);max-width:36rem}
+.chip.c1{rotate:-4deg}.chip.c2{rotate:3deg}.chip.c3{rotate:-2deg}.chip.c4{rotate:4deg}
+.arch{transition:transform .5s cubic-bezier(.3,1.4,.5,1)}
+.photo-stage:hover .arch{transform:rotate(-1.5deg) scale(1.01)}
+mark{border-radius:4px 10px 5px 11px;-webkit-box-decoration-break:clone;box-decoration-break:clone}
+@media (prefers-reduced-motion: no-preference){
+  .wave{animation:wave 2.6s ease-in-out 1.2s 2 both}
+  .open .dot::after{content:'';position:absolute;inset:-5px;border-radius:50%;border:2px solid var(--green);animation:ping 2.2s ease-out infinite}
+  @keyframes wave{0%,60%,100%{transform:rotate(0)}10%{transform:rotate(16deg)}20%{transform:rotate(-10deg)}30%{transform:rotate(16deg)}40%{transform:rotate(-6deg)}50%{transform:rotate(10deg)}}
+}
+@media (max-width:560px){.sec-sub{margin:-18px 0 26px;font-size:1.05rem}.hello{font-size:1.2rem}}
+
+/* personal touches */
+.hello [lang="ar"]{font-family:'Cairo','Hanken Grotesk',system-ui,sans-serif;font-weight:600;font-size:1.3rem;color:var(--ink)}
+.now{display:flex;gap:10px;align-items:flex-start;margin-top:22px;max-width:30rem;font-size:.95rem;color:var(--muted);line-height:1.4}
+.now-dot{flex:none;width:10px;height:10px;margin-top:.4em;border-radius:50%;background:var(--green)}
+.now+.open{margin-top:10px}
+.about .about-grid{display:grid;grid-template-columns:1fr 280px;gap:48px;align-items:center}
+.about .about-grid p{max-width:44rem}
+.about-photo{margin:0;border-radius:22px;overflow:hidden;transform:rotate(2deg);box-shadow:0 18px 40px rgba(18,34,43,.2);border:6px solid var(--surface)}
+.about-photo img{display:block;width:100%;height:auto}
+@media (max-width:860px){.about .about-grid{grid-template-columns:1fr;gap:26px}.about-photo{max-width:220px;margin:0 auto 0 0}}
+.thanks{display:grid;grid-template-columns:minmax(0,300px) 1fr;gap:36px;align-items:center;margin:64px auto 0;max-width:820px}
+.thanks-photo{margin:0}
+.thanks-photo img{display:block;width:100%;height:auto;border-radius:20px;border:1px solid var(--line);box-shadow:0 18px 40px rgba(18,34,43,.18)}
+.thanks-quote{margin:0;padding:6px 0 6px 24px;border-left:4px solid var(--gold)}
+.thanks-quote p{font-size:1.15rem;line-height:1.55;margin:0}
+.thanks-quote .thanks-title{font-family:'Young Serif',Georgia,serif;font-size:1.5rem;line-height:1.2;margin-bottom:12px}
+.thanks-quote footer{margin-top:14px;color:var(--muted);font-size:.92rem}
+@media (max-width:700px){.thanks{grid-template-columns:1fr;gap:22px;margin-top:48px}.thanks-photo{max-width:300px}.thanks-quote{padding-left:18px}}
+
 /* timeline line stops at the last logo/dot (set by JS) */
 .tl.measured::before{bottom:var(--tl-end)}
 /* fun fact: "Me" row keeps the same columns as the rows above */
@@ -488,14 +532,16 @@ p{text-wrap:pretty}
   <div class="wrap">
     <div class="hero-grid">
       <div class="hero-copy">
+        <p class="hello"><span lang="ar" dir="rtl">أهلاً</span> Hi, I’m</p>
         <h1>Reem Elsayed</h1>
         <p class="hero-role">B2B digital marketer</p>
         <p class="hero-lede">I grew up in a family of engineers, so I learned early how to make complex things easy to understand. That’s what I bring to B2B marketing: taking what a business sells, whether products or services, and turning it into campaigns that reach the right buyers and bring in qualified leads.</p>
         <div class="hero-actions">
-          <a class="btn btn-primary" href="#work">See my work</a>
-          <a class="btn btn-outline" href="#contact">Get in touch</a>
+          <a class="btn btn-primary" href="#work">See what I’ve made</a>
+          <a class="btn btn-outline" href="#contact">Say hello</a>
           <a class="btn-link" href="assets/Reem_Elsayed_CV.pdf" download="Reem_Elsayed_CV.pdf"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 19.5h14"/></svg>Download CV <span class="sr-only">(PDF)</span></a>
         </div>
+        <p class="open"><span class="dot" aria-hidden="true"></span>Open to B2B marketing roles worldwide</p>
       </div>
       <div class="photo-stage">
         <div class="arch">
@@ -524,7 +570,10 @@ p{text-wrap:pretty}
 <section id="about" class="about rule">
   <div class="wrap rv">
     <h2 class="sec-title">About</h2>
-    <p>Inside B2B marketing, a category with <mark>very few women in the room</mark>, I learned early how to make <mark>technical, unglamorous products feel worth paying attention to</mark>. I hold an MSc in Digital Marketing Management from the University of Greenwich, and I’ve run paid and organic social across eight brands, rebuilt an email lifecycle program, worked SEO alongside an agency, and taken on brand and event production too.</p>
+    <div class="about-grid">
+      <p>Hi, I’m Reem. I work in B2B marketing, a category with <mark>very few women in the room</mark>, and it taught me early how to make <mark>technical, unglamorous products feel worth paying attention to</mark>. I hold an MSc in Digital Marketing Management from the University of Greenwich, and I’ve run paid and organic social across eight brands, rebuilt an email lifecycle program, worked SEO alongside an agency, and taken on brand and event production too.</p>
+      <figure class="about-photo"><img src="assets/img/reem-with-her-arms-stretched-wide-in-front-of-the-old-royal.webp" width="720" height="960" alt="Reem with her arms stretched wide in front of the Old Royal Naval College in Greenwich, London" loading="lazy"></figure>
+    </div>
   </div>
 </section>
 
@@ -548,6 +597,7 @@ p{text-wrap:pretty}
 <section id="education" class="rule">
   <div class="wrap">
     <h2 class="sec-title rv">Education and Certifications</h2>
+    <p class="sec-sub rv">The classroom side of the story.</p>
     <div class="edu-grid">
       <div>
         <h3 class="sub-title rv">Education</h3>
@@ -567,15 +617,25 @@ p{text-wrap:pretty}
 <section id="experience" class="rule">
   <div class="wrap">
     <h2 class="sec-title rv">Experience</h2>
+    <p class="sec-sub rv">Where I’ve been learning by doing.</p>
     <div class="tl dots rv"><div class="tl-item"><div class="tl-dot" aria-hidden="true"></div><div class="tl-body"><h3>Digital Marketing Executive</h3><p class="tl-org">Al-Mubdioon Al-Arab</p><p class="tl-when">September 2026 to present</p></div></div><div class="tl-item"><div class="tl-dot" aria-hidden="true"></div><div class="tl-body"><h3>Marketing Executive</h3><p class="tl-org">ALFA Tech</p><p class="tl-when">July 2026 to August 2026</p></div></div><div class="tl-item"><div class="tl-dot" aria-hidden="true"></div><div class="tl-body"><h3>Marketing Specialist</h3><p class="tl-org">ALFA Tech</p><p class="tl-when">January 2025 to August 2025</p></div></div><div class="tl-item"><div class="tl-dot" aria-hidden="true"></div><div class="tl-body"><h3>Social Media Executive Intern</h3><p class="tl-org">Maketa Agency</p><p class="tl-when">December 2024 to January 2025</p></div></div><div class="tl-item"><div class="tl-dot" aria-hidden="true"></div><div class="tl-body"><h3>Marketing Assistant Intern</h3><p class="tl-org">V Compass</p><p class="tl-when">October 2024 to November 2024</p></div></div><div class="tl-item"><div class="tl-dot" aria-hidden="true"></div><div class="tl-body"><h3>Marketing Assistant Intern</h3><p class="tl-org">Johnson Controls</p><p class="tl-when">August 2023 to September 2023</p></div></div><div class="tl-item"><div class="tl-dot" aria-hidden="true"></div><div class="tl-body"><h3>Content Marketing Assistant Intern</h3><p class="tl-org">Dental clinic</p><p class="tl-when">April 2023 to May 2023</p></div></div><div class="tl-item"><div class="tl-dot" aria-hidden="true"></div><div class="tl-body"><h3>Community Volunteer</h3><p class="tl-org">Resala Organisation</p><p class="tl-when">January 2018 to present</p></div></div></div>
   
     <figure class="award rv"><img src="assets/img/reem-holding-the-volunteer-appreciation-award-at-a-resala.webp" alt="Reem holding the Volunteer Appreciation Award at a Resala event" width="800" height="481" loading="lazy"><figcaption>Volunteer Appreciation Award for Outstanding Performance</figcaption></figure>
+    <div class="thanks rv">
+      <figure class="thanks-photo"><img src="assets/img/reem-hugging-a-colleague-and-holding-a-certificate-of.webp" width="800" height="1066" alt="Reem hugging a colleague and holding a certificate of recognition in front of a farewell slide at ALFA Tech" loading="lazy"></figure>
+      <blockquote class="thanks-quote">
+        <p class="thanks-title">Special thanks for Reem Ayman</p>
+        <p>Heartfelt appreciation to Reem Ayman for her dedication and lasting positive impact on our department. Your mark will remain, and your efforts will continue to inspire us.</p>
+        <footer>ALFA Tech, certificate of recognition</footer>
+      </blockquote>
+    </div>
   </div>
 </section>
 
 <section id="work" class="rule">
   <div class="wrap">
     <h2 class="sec-title rv">Case studies</h2>
+    <p class="sec-sub rv">A few things I’ve built and run, shown with the real work.</p>
 
     <!-- 1 lead generation -->
     <article class="cs rv">
@@ -691,6 +751,7 @@ p{text-wrap:pretty}
 <section id="skills" class="rule">
   <div class="wrap">
     <h2 class="sec-title rv">Skills and tools</h2>
+    <p class="sec-sub rv">The tools I reach for most.</p>
     <div class="skill-groups"><div class="rv"><h3>Lead generation and social</h3><div class="logo-row"><div class="logo-tile"><img width="300" height="70" src="assets/img/meta.webp" alt="Meta" loading="lazy"></div><div class="logo-tile"><img width="300" height="302" src="assets/img/linkedin.webp" alt="LinkedIn" loading="lazy"></div><div class="logo-tile"><img width="300" height="173" src="assets/img/google-ads.webp" alt="Google Ads" loading="lazy"></div></div><p class="skill-extra">Meta Ads Manager, Meta Business Suite, LinkedIn Campaign Manager</p></div><div class="rv"><h3>Email and lifecycle</h3><div class="logo-row"><div class="logo-tile"><img width="300" height="382" src="assets/img/mailchimp.webp" alt="Mailchimp" loading="lazy"></div></div></div><div class="rv"><h3>Analytics and reporting</h3><div class="logo-row"><div class="logo-tile"><img width="300" height="95" src="assets/img/google-analytics-4.webp" alt="Google Analytics 4" loading="lazy"></div><div class="logo-tile"><img width="300" height="62" src="assets/img/tableau.webp" alt="Tableau" loading="lazy"></div></div><p class="skill-extra">Also SPSS and Excel</p></div><div class="rv"><h3>Design and presentation</h3><div class="logo-row"><div class="logo-tile"><img width="300" height="100" src="assets/img/canva.webp" alt="Canva" loading="lazy"></div></div><p class="skill-extra">Also PowerPoint</p></div><div class="rv"><h3>AI and automation</h3><div class="logo-row"><div class="logo-tile"><img width="300" height="74" src="assets/img/claude.webp" alt="Claude" loading="lazy"></div></div></div></div>
   </div>
 </section>
@@ -703,8 +764,8 @@ p{text-wrap:pretty}
     <h2>Let’s talk B2B marketing.</h2>
     <p class="contact-sub">Whatever your business sells, products or services, I’d love to hear what your team is working on. My CV has the full story.</p>
     <div class="contact-links">
-      <a class="cbtn gold" href="mailto:reem.elsayed.cdmp@gmail.com">reem.elsayed.cdmp@gmail.com</a>
-      <a class="cbtn line" href="https://www.linkedin.com/in/reem-aboulazaym" target="_blank" rel="noopener">linkedin.com/in/reem-aboulazaym</a>
+      <a class="cbtn gold" href="mailto:reem.elsayed.cdmp@gmail.com">Say hello at reem.elsayed.cdmp@gmail.com</a>
+      <a class="cbtn line" href="https://www.linkedin.com/in/reem-aboulazaym" target="_blank" rel="noopener">Find me on LinkedIn</a>
       <a class="cbtn line" href="assets/Reem_Elsayed_CV.pdf" data-cv download="Reem_Elsayed_CV.pdf">Download CV <span class="sr-only">(PDF)</span></a>
     </div>
     <div class="socials" aria-label="Contact links">
