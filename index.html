@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Reem Elsayed | B2B Digital Marketing</title>
-<meta name="ga4-id" content="">
+<meta name="ga4-id" content="G-N5SEC831LC">
 <meta name="clarity-id" content="">
 <meta name="description" content="Reem Elsayed is a B2B digital marketer: lead generation, organic social, email, SEO and brand work for B2B products and services.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
@@ -831,7 +831,7 @@ a.chip:hover svg{opacity:1}
 
 
 <div class="consent" id="consent" role="dialog" aria-live="polite" aria-label="Cookie choice" hidden>
-  <p>I use cookies from Google Analytics and Microsoft Clarity to see how visitors use this site, so I can improve it. Nothing is shared for advertising.</p>
+  <p>I use cookies from Google Analytics<span data-clarity-only> and Microsoft Clarity</span> to see how visitors use this site, so I can improve it. Nothing is shared for advertising.</p>
   <div class="consent-actions">
     <button type="button" class="btn btn-primary" data-consent="granted">Accept</button>
     <button type="button" class="btn btn-outline" data-consent="denied">Decline</button>
@@ -926,6 +926,7 @@ a.chip:hover svg{opacity:1}
   function get(){ try { return localStorage.getItem(KEY); } catch(e){ return null; } }
   function set(v){ try { localStorage.setItem(KEY, v); } catch(e){} }
   if (footLink) footLink.hidden = false;
+  if (!CL) [].forEach.call(document.querySelectorAll('[data-clarity-only]'), function(n){ n.remove(); });
 
   var on = false;
   window.dataLayer = window.dataLayer || [];
