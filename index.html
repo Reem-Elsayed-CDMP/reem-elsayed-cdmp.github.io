@@ -4,6 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Reem Elsayed | B2B Digital Marketing</title>
+<meta name="ga4-id" content="">
+<meta name="clarity-id" content="">
 <meta name="description" content="Reem Elsayed is a B2B digital marketer: lead generation, organic social, email, SEO and brand work for B2B products and services.">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <meta name="color-scheme" content="light dark">
@@ -495,6 +497,54 @@ p{text-wrap:pretty}
 .nav-links a[aria-current="true"]::after{transform:scaleX(1)}
 @media (prefers-reduced-motion: reduce){html{scroll-behavior:auto}.cover-slide,.btn,.cbtn,.socials a,.rail a,.nav-social a,.logo-tile,.tl-logo,.tl-dot,.cover-btn{transition:none}}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* 2026-10-20 */
+/* hero badges link to their case study */
+a.chip{text-decoration:none;display:inline-flex;align-items:center;gap:6px;cursor:pointer;transition:background .2s ease,color .2s ease,border-color .2s ease,box-shadow .2s ease}
+a.chip svg{width:11px;height:11px;stroke:currentColor;stroke-width:2;fill:none;stroke-linecap:round;stroke-linejoin:round;opacity:.65}
+a.chip:hover{background:var(--green);border-color:var(--green);color:var(--btn-ink);box-shadow:0 10px 24px rgba(18,34,43,.22)}
+a.chip:hover svg{opacity:1}
+@media (min-width:861px) and (max-width:1240px){.chip.c2{right:-2%}.chip.c4{right:-1%}}
+/* ghost word behind each section header */
+.sec-title[data-ghost]{position:relative;isolation:isolate;padding-top:clamp(1.6rem,5vw,3.4rem)}
+.sec-title[data-ghost]::before{content:attr(data-ghost);content:attr(data-ghost) / "";position:absolute;z-index:-1;left:-.06em;top:-.1em;font-family:'Young Serif',Georgia,serif;font-size:clamp(4.2rem,13vw,9.5rem);line-height:1;letter-spacing:.03em;white-space:nowrap;color:transparent;-webkit-text-stroke:1.5px color-mix(in srgb,var(--green) 30%,transparent);pointer-events:none;user-select:none}
+/* education: diploma photo sits beside the certifications */
+.edu-grid{grid-template-areas:"edu cdmp" "certs dipl";row-gap:56px}
+.edu-block{grid-area:edu}.cert-photo{grid-area:cdmp}.cert-block{grid-area:certs}.diploma-photo{grid-area:dipl}
+.diploma-photo{margin:0;align-self:center}
+.diploma-photo img{display:block;width:100%;height:auto;border-radius:16px;border:1px solid var(--line);box-shadow:0 16px 34px rgba(18,34,43,.16)}
+@media (max-width:860px){.edu-grid{grid-template-areas:"edu" "certs" "cdmp" "dipl";row-gap:40px}.cert-photo{margin:0 auto}.diploma-photo{max-width:420px;width:100%;margin:0 auto}}
+/* experience: two mirrored columns on wide screens */
+@media (min-width:861px){
+  .tl.dots{grid-template-columns:1fr 1fr;column-gap:76px;row-gap:6px;align-items:start}
+  .tl.dots::before{left:calc(50% - 1.5px)}
+  .tl.dots .tl-item{grid-template-columns:1fr;gap:0}
+  .tl.dots .tl-dot{position:absolute;top:3px;margin:0}
+  .tl.dots .tl-item:nth-child(odd){text-align:right}
+  .tl.dots .tl-item:nth-child(odd) .tl-dot{right:-50px}
+  .tl.dots .tl-item:nth-child(even) .tl-dot{left:-50px}
+  .tl.dots .tl-item:nth-child(even){margin-top:3.4rem}
+}
+/* divider between the award and the thank-you card */
+.divider{max-width:820px;margin:64px auto 0;display:flex;align-items:center;gap:16px}
+.divider::before,.divider::after{content:"";flex:1;height:1px;background:var(--line)}
+.divider span{width:10px;height:10px;transform:rotate(45deg);background:var(--gold);border-radius:2px;flex:none}
+.divider + .thanks{margin-top:48px}
+/* phones: photos centred */
+@media (max-width:860px){.about-photo{margin:0 auto}}
+@media (max-width:700px){.thanks-photo{margin:0 auto;width:100%}}
+
+/* cookie consent */
+.consent{position:fixed;left:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:70;max-width:380px;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:18px;padding:18px 18px 16px;box-shadow:0 18px 44px rgba(18,34,43,.24)}
+.consent[hidden]{display:none}
+.consent p{font-size:.95rem;line-height:1.5;margin:0}
+.consent-actions{display:flex;gap:10px;margin-top:14px}
+.consent .btn{padding:10px 20px;font-size:.95rem}
+@media (max-width:560px){.consent{left:12px;right:12px;max-width:none}}
+.cookie-link{position:relative;z-index:1;margin-top:28px}
+.cookie-link[hidden]{display:none}
+.cookie-link button{background:none;border:0;padding:6px 0;color:color-mix(in srgb,#fff 75%,transparent);font:inherit;font-size:.9rem;text-decoration:underline;text-underline-offset:4px;cursor:pointer}
+.cookie-link button:hover{color:#fff}
 </style>
 </head>
 <body>
@@ -538,19 +588,17 @@ p{text-wrap:pretty}
         <p class="hero-lede">I grew up in a family of engineers, so I learned early how to make complex things easy to understand. That’s what I bring to B2B marketing: taking what a business sells, whether products or services, and turning it into campaigns that reach the right buyers and bring in qualified leads.</p>
         <div class="hero-actions">
           <a class="btn btn-primary" href="#work">See what I’ve made</a>
-          <a class="btn btn-outline" href="#contact">Say hello</a>
           <a class="btn-link" href="assets/Reem_Elsayed_CV.pdf" download="Reem_Elsayed_CV.pdf"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 19.5h14"/></svg>Download CV <span class="sr-only">(PDF)</span></a>
         </div>
-        <p class="open"><span class="dot" aria-hidden="true"></span>Open to B2B marketing roles worldwide</p>
       </div>
       <div class="photo-stage">
         <div class="arch">
           <img src="assets/img/reem-elsayed.webp" alt="Reem Elsayed, smiling, in a green blazer and white hijab" fetchpriority="high" width="900" height="1142">
         </div>
-        <span class="chip c1">Lead generation</span>
-        <span class="chip c2">Email</span>
-        <span class="chip c3">SEO</span>
-        <span class="chip c4">Organic social</span>
+        <a class="chip c1" href="#cs-leads" data-track="hero_badge">Lead generation<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 4l8 8M12 5v7H5"/></svg></a>
+        <a class="chip c2" href="#cs-email" data-track="hero_badge">Email<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 4l8 8M12 5v7H5"/></svg></a>
+        <a class="chip c3" href="#cs-seo" data-track="hero_badge">SEO<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 4l8 8M12 5v7H5"/></svg></a>
+        <a class="chip c4" href="#cs-social" data-track="hero_badge">Organic social<svg viewBox="0 0 16 16" aria-hidden="true"><path d="M4 4l8 8M12 5v7H5"/></svg></a>
       </div>
     </div>
   </div>
@@ -569,9 +617,9 @@ p{text-wrap:pretty}
 
 <section id="about" class="about rule">
   <div class="wrap rv">
-    <h2 class="sec-title">About</h2>
+    <h2 data-ghost="STORY" class="sec-title">About</h2>
     <div class="about-grid">
-      <p>Hi, I’m Reem. I work in B2B marketing, a category with <mark>very few women in the room</mark>, and it taught me early how to make <mark>technical, unglamorous products feel worth paying attention to</mark>. I hold an MSc in Digital Marketing Management from the University of Greenwich, and I’ve run paid and organic social across eight brands, rebuilt an email lifecycle program, worked SEO alongside an agency, and taken on brand and event production too.</p>
+      <p>Hi, I’m Reem. I work in B2B marketing, a field with <mark>very few women in the room</mark>, and that taught me early on how to make <mark>technical, unglamorous products feel worth paying attention to</mark>. I hold an MSc in Digital Marketing Management from the University of Greenwich. I’ve run paid and organic social media across eight brands, rebuilt an email lifecycle program, worked on SEO alongside an agency, and taken on brand and event production too.</p>
       <figure class="about-photo"><img src="assets/img/reem-with-her-arms-stretched-wide-in-front-of-the-old-royal.webp" width="720" height="960" alt="Reem with her arms stretched wide in front of the Old Royal Naval College in Greenwich, London" loading="lazy"></figure>
     </div>
   </div>
@@ -596,19 +644,22 @@ p{text-wrap:pretty}
 
 <section id="education" class="rule">
   <div class="wrap">
-    <h2 class="sec-title rv">Education and Certifications</h2>
+    <h2 data-ghost="LEARN" class="sec-title rv">Education and Certifications</h2>
     <p class="sec-sub rv">The classroom side of the story.</p>
     <div class="edu-grid">
-      <div>
+      <div class="edu-block">
         <h3 class="sub-title rv">Education</h3>
         <div class="tl rv"><div class="tl-item"><div class="tl-logo "><img width="300" height="76" src="assets/img/university-of-greenwich-logo.webp" alt="University of Greenwich logo" loading="lazy"></div><div class="tl-body"><h3>MSc Digital Marketing Management</h3><p class="tl-org">University of Greenwich, London, UK</p><p class="tl-when">2025 to 2026 <span class="pill-gpa">Distinction</span></p><div class="tl-more"><p>Dissertation: how AI disclosure in digital advertising shapes consumer trust and purchase intent, an experimental study.</p></div></div></div><div class="tl-item"><div class="tl-logo two"><img width="300" height="123" src="assets/img/university-of-bedfordshire-logo.webp" alt="University of Bedfordshire logo" loading="lazy"><span class="tl-badge sm" style="height:22px; margin-top:3px; font-size:.62rem; border-radius:6px;">MSA</span></div><div class="tl-body"><h3>BA Marketing and International Business, dual degree</h3><p class="tl-org">MSA University and University of Bedfordshire</p><p class="tl-when">2020 to 2024 <span class="pill-gpa">GPA 3.8/4</span></p><div class="tl-more"><p>Dissertation: the impact of mega events on a country’s image, applied on Riyadh Season.</p><p style="margin-top:4px;">Certificate of achievement in digital marketing and entrepreneurship.</p></div></div></div></div>
-        <h3 class="sub-title rv" style="margin-top:56px;">Certifications</h3>
-        <div class="tl rv"><div class="tl-item"><div class="tl-logo "><img width="300" height="159" src="assets/img/digital-marketing-institute-logo.webp" alt="Digital Marketing Institute logo" loading="lazy"></div><div class="tl-body"><h3>Certified Digital Marketing Professional (CDMP)</h3><p class="tl-org">Digital Marketing Institute</p><p class="tl-when">2026</p></div></div><div class="tl-item"><div class="tl-logo "><img width="300" height="90" src="assets/img/forage-logo.webp" alt="Forage logo" loading="lazy"></div><div class="tl-body"><h3>Branding and Design Job Simulation</h3><p class="tl-org">Forage</p><p class="tl-when">2026</p><div class="tl-more"><p>Creative content, a product concept, marketing collateral, influencer research and an event pitch for a product launch.</p></div></div></div><div class="tl-item"><div class="tl-logo "><img width="200" height="200" src="assets/img/logo-of-the-social-media-marketing-diploma.webp" alt="Logo of the social media marketing diploma" loading="lazy"></div><div class="tl-body"><h3>The Full Social Media Marketing Diploma</h3><p class="tl-when">November 2024</p></div></div></div>
       </div>
       <figure class="cert-photo rv">
         <img src="assets/img/reem-holding-her-certified-digital-marketing-professional.webp" alt="Reem holding her Certified Digital Marketing Professional certificate" width="760" height="2179" loading="lazy">
         <figcaption>CDMP, Digital Marketing Institute</figcaption>
       </figure>
+      <div class="cert-block">
+        <h3 class="sub-title rv">Certifications</h3>
+        <div class="tl rv"><div class="tl-item"><div class="tl-logo "><img width="300" height="159" src="assets/img/digital-marketing-institute-logo.webp" alt="Digital Marketing Institute logo" loading="lazy"></div><div class="tl-body"><h3>Certified Digital Marketing Professional (CDMP)</h3><p class="tl-org">Digital Marketing Institute</p><p class="tl-when">2026</p></div></div><div class="tl-item"><div class="tl-logo "><img width="300" height="90" src="assets/img/forage-logo.webp" alt="Forage logo" loading="lazy"></div><div class="tl-body"><h3>Branding and Design Job Simulation</h3><p class="tl-org">Forage</p><p class="tl-when">2026</p><div class="tl-more"><p>Creative content, a product concept, marketing collateral, influencer research and an event pitch for a product launch.</p></div></div></div><div class="tl-item"><div class="tl-logo "><img width="200" height="200" src="assets/img/logo-of-the-social-media-marketing-diploma.webp" alt="Logo of the social media marketing diploma" loading="lazy"></div><div class="tl-body"><h3>The Full Social Media Marketing Diploma</h3><p class="tl-when">November 2024</p></div></div></div>
+      </div>
+      <figure class="diploma-photo rv"><img src="assets/img/diploma-graduation-day-the-class-smiling-together-and.webp" width="1100" height="825" alt="Diploma graduation day: the class smiling together and holding their certificates of completion, November 2024" loading="lazy"></figure>
     </div>
   </div>
 </section>
@@ -616,11 +667,12 @@ p{text-wrap:pretty}
 
 <section id="experience" class="rule">
   <div class="wrap">
-    <h2 class="sec-title rv">Experience</h2>
+    <h2 data-ghost="WORK" class="sec-title rv">Experience</h2>
     <p class="sec-sub rv">Where I’ve been learning by doing.</p>
     <div class="tl dots rv"><div class="tl-item"><div class="tl-dot" aria-hidden="true"></div><div class="tl-body"><h3>Digital Marketing Executive</h3><p class="tl-org">Al-Mubdioon Al-Arab</p><p class="tl-when">September 2026 to present</p></div></div><div class="tl-item"><div class="tl-dot" aria-hidden="true"></div><div class="tl-body"><h3>Marketing Executive</h3><p class="tl-org">ALFA Tech</p><p class="tl-when">July 2026 to August 2026</p></div></div><div class="tl-item"><div class="tl-dot" aria-hidden="true"></div><div class="tl-body"><h3>Marketing Specialist</h3><p class="tl-org">ALFA Tech</p><p class="tl-when">January 2025 to August 2025</p></div></div><div class="tl-item"><div class="tl-dot" aria-hidden="true"></div><div class="tl-body"><h3>Social Media Executive Intern</h3><p class="tl-org">Maketa Agency</p><p class="tl-when">December 2024 to January 2025</p></div></div><div class="tl-item"><div class="tl-dot" aria-hidden="true"></div><div class="tl-body"><h3>Marketing Assistant Intern</h3><p class="tl-org">V Compass</p><p class="tl-when">October 2024 to November 2024</p></div></div><div class="tl-item"><div class="tl-dot" aria-hidden="true"></div><div class="tl-body"><h3>Marketing Assistant Intern</h3><p class="tl-org">Johnson Controls</p><p class="tl-when">August 2023 to September 2023</p></div></div><div class="tl-item"><div class="tl-dot" aria-hidden="true"></div><div class="tl-body"><h3>Content Marketing Assistant Intern</h3><p class="tl-org">Dental clinic</p><p class="tl-when">April 2023 to May 2023</p></div></div><div class="tl-item"><div class="tl-dot" aria-hidden="true"></div><div class="tl-body"><h3>Community Volunteer</h3><p class="tl-org">Resala Organisation</p><p class="tl-when">January 2018 to present</p></div></div></div>
   
     <figure class="award rv"><img src="assets/img/reem-holding-the-volunteer-appreciation-award-at-a-resala.webp" alt="Reem holding the Volunteer Appreciation Award at a Resala event" width="800" height="481" loading="lazy"><figcaption>Volunteer Appreciation Award for Outstanding Performance</figcaption></figure>
+    <div class="divider" aria-hidden="true"><span></span></div>
     <div class="thanks rv">
       <figure class="thanks-photo"><img src="assets/img/reem-hugging-a-colleague-and-holding-a-certificate-of.webp" width="800" height="1066" alt="Reem hugging a colleague and holding a certificate of recognition in front of a farewell slide at ALFA Tech" loading="lazy"></figure>
       <blockquote class="thanks-quote">
@@ -634,11 +686,11 @@ p{text-wrap:pretty}
 
 <section id="work" class="rule">
   <div class="wrap">
-    <h2 class="sec-title rv">Case studies</h2>
+    <h2 data-ghost="PROOF" class="sec-title rv">Case studies</h2>
     <p class="sec-sub rv">A few things I’ve built and run, shown with the real work.</p>
 
     <!-- 1 lead generation -->
-    <article class="cs rv">
+    <article class="cs rv" id="cs-leads">
       <div class="cs-grid">
         <div>
           <h3 class="cs-title">Lead generation</h3>
@@ -658,7 +710,7 @@ p{text-wrap:pretty}
     </article>
 
     <!-- 2 organic social -->
-    <article class="cs rv">
+    <article class="cs rv" id="cs-social">
       <div class="cs-grid" style="grid-template-columns:1fr;">
         <div>
           <h3 class="cs-title">Organic social media management</h3>
@@ -675,7 +727,7 @@ p{text-wrap:pretty}
     </article>
 
     <!-- 3 email -->
-    <article class="cs rv">
+    <article class="cs rv" id="cs-email">
       <div class="cs-grid">
         <div>
           <h3 class="cs-title">Lifecycle email rebuild</h3>
@@ -697,7 +749,7 @@ p{text-wrap:pretty}
     </article>
 
     <!-- 4 SEO -->
-    <article class="cs flip rv">
+    <article class="cs flip rv" id="cs-seo">
       <div class="cs-grid">
         <div>
           <h3 class="cs-title">SEO and website optimization</h3>
@@ -711,7 +763,7 @@ p{text-wrap:pretty}
     </article>
 
     <!-- 5 exhibition -->
-    <article class="cs rv">
+    <article class="cs rv" id="cs-exhibition">
       <div class="cs-grid" style="grid-template-columns:1fr;">
         <div>
           <h3 class="cs-title">Exhibition and brand production</h3>
@@ -723,7 +775,7 @@ p{text-wrap:pretty}
     </article>
 
     <!-- 6 design -->
-    <article class="cs rv">
+    <article class="cs rv" id="cs-print">
       <div class="cs-grid" style="grid-template-columns:1fr;">
         <div>
           <h3 class="cs-title">Sales enablement and printed materials</h3>
@@ -735,7 +787,7 @@ p{text-wrap:pretty}
     </article>
 
     <!-- 7 Saudi client -->
-    <article class="cs rv">
+    <article class="cs rv" id="cs-brand">
       <div class="saudi-grid">
         <div>
           <h3 class="cs-title">Brand guidelines and website</h3>
@@ -750,7 +802,7 @@ p{text-wrap:pretty}
 
 <section id="skills" class="rule">
   <div class="wrap">
-    <h2 class="sec-title rv">Skills and tools</h2>
+    <h2 data-ghost="TOOLS" class="sec-title rv">Skills and tools</h2>
     <p class="sec-sub rv">The tools I reach for most.</p>
     <div class="skill-groups"><div class="rv"><h3>Lead generation and social</h3><div class="logo-row"><div class="logo-tile"><img width="300" height="70" src="assets/img/meta.webp" alt="Meta" loading="lazy"></div><div class="logo-tile"><img width="300" height="302" src="assets/img/linkedin.webp" alt="LinkedIn" loading="lazy"></div><div class="logo-tile"><img width="300" height="173" src="assets/img/google-ads.webp" alt="Google Ads" loading="lazy"></div></div><p class="skill-extra">Meta Ads Manager, Meta Business Suite, LinkedIn Campaign Manager</p></div><div class="rv"><h3>Email and lifecycle</h3><div class="logo-row"><div class="logo-tile"><img width="300" height="382" src="assets/img/mailchimp.webp" alt="Mailchimp" loading="lazy"></div></div></div><div class="rv"><h3>Analytics and reporting</h3><div class="logo-row"><div class="logo-tile"><img width="300" height="95" src="assets/img/google-analytics-4.webp" alt="Google Analytics 4" loading="lazy"></div><div class="logo-tile"><img width="300" height="62" src="assets/img/tableau.webp" alt="Tableau" loading="lazy"></div></div><p class="skill-extra">Also SPSS and Excel</p></div><div class="rv"><h3>Design and presentation</h3><div class="logo-row"><div class="logo-tile"><img width="300" height="100" src="assets/img/canva.webp" alt="Canva" loading="lazy"></div></div><p class="skill-extra">Also PowerPoint</p></div><div class="rv"><h3>AI and automation</h3><div class="logo-row"><div class="logo-tile"><img width="300" height="74" src="assets/img/claude.webp" alt="Claude" loading="lazy"></div></div></div></div>
   </div>
@@ -774,8 +826,17 @@ p{text-wrap:pretty}
       <a href="https://wa.me/201126222921" target="_blank" rel="noopener" aria-label="Message Reem on WhatsApp"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2a9.9 9.9 0 0 0-8.5 14.9L2 22l5.25-1.38A9.9 9.9 0 1 0 12.04 2Zm0 1.8a8.1 8.1 0 0 1 0 16.2c-1.4 0-2.7-.35-3.85-.98l-.3-.17-3.1.82.83-3.02-.2-.31A8.1 8.1 0 0 1 12.04 3.8Zm-3.2 3.9c-.2 0-.52.07-.8.37-.27.3-1.05 1.02-1.05 2.5s1.08 2.9 1.23 3.1c.15.2 2.1 3.3 5.2 4.5 2.55 1 3.07.8 3.62.75.56-.05 1.8-.73 2.05-1.45.25-.7.25-1.32.18-1.45-.08-.12-.28-.2-.58-.35-.3-.15-1.8-.9-2.07-1-.28-.1-.48-.15-.68.15-.2.3-.78 1-.95 1.2-.18.2-.35.22-.65.07-.3-.15-1.28-.47-2.43-1.5-.9-.8-1.5-1.8-1.68-2.1-.17-.3-.02-.47.13-.62.14-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.38-.03-.53-.08-.15-.68-1.65-.93-2.25-.25-.58-.5-.5-.68-.5l-.58-.02Z"/></svg></a>
     </div>
   </div>
+  <p class="cookie-link wrap" hidden><button type="button" data-consent-open>Cookie settings</button></p>
 </footer>
 
+
+<div class="consent" id="consent" role="dialog" aria-live="polite" aria-label="Cookie choice" hidden>
+  <p>I use cookies from Google Analytics and Microsoft Clarity to see how visitors use this site, so I can improve it. Nothing is shared for advertising.</p>
+  <div class="consent-actions">
+    <button type="button" class="btn btn-primary" data-consent="granted">Accept</button>
+    <button type="button" class="btn btn-outline" data-consent="denied">Decline</button>
+  </div>
+</div>
 <script>
 (function(){
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -850,6 +911,118 @@ p{text-wrap:pretty}
     mb.addEventListener('click', function(){ var o=mn.classList.toggle('open'); mb.setAttribute('aria-expanded', o?'true':'false'); mb.setAttribute('aria-label', o?'Close menu':'Open menu'); });
     document.addEventListener('keydown', function(e){ if(e.key==='Escape' && mn.classList.contains('open')){ mn.classList.remove('open'); mb.setAttribute('aria-expanded','false'); mb.setAttribute('aria-label','Open menu'); mb.focus(); } });
     mn.addEventListener('click', function(e){ if(e.target.tagName==='A'){ mn.classList.remove('open'); mb.setAttribute('aria-expanded','false'); } });
+  }
+})();
+</script>
+
+<script>
+/* Analytics: Google Analytics 4 + Microsoft Clarity, loaded only after the visitor accepts.
+   Set the IDs in <meta name="ga4-id"> and <meta name="clarity-id">; empty = off. */
+(function(){
+  var GA = (document.querySelector('meta[name="ga4-id"]')||{}).content || '';
+  var CL = (document.querySelector('meta[name="clarity-id"]')||{}).content || '';
+  if (!GA && !CL) return;
+  var KEY = 'analytics-consent', box = document.getElementById('consent'), footLink = document.querySelector('.cookie-link');
+  function get(){ try { return localStorage.getItem(KEY); } catch(e){ return null; } }
+  function set(v){ try { localStorage.setItem(KEY, v); } catch(e){} }
+  if (footLink) footLink.hidden = false;
+
+  var on = false;
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  function track(name, params){
+    if (!on) return;
+    if (GA) gtag('event', name, params || {});
+    if (CL && window.clarity) { try { clarity('event', name); } catch(e){} }
+  }
+
+  function load(){
+    if (on) return; on = true;
+    if (GA) {
+      var g = document.createElement('script'); g.async = true;
+      g.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(GA);
+      document.head.appendChild(g);
+      gtag('js', new Date());
+      gtag('config', GA);
+    }
+    if (CL) {
+      (function(c,l,a,r,i,t,y){ c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)}; t=l.createElement(r); t.async=1; t.src='https://www.clarity.ms/tag/'+i; y=l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t,y); })(window, document, 'clarity', 'script', CL);
+    }
+    startTracking();
+  }
+  function choose(v){ set(v); box.hidden = true; if (v === 'granted') load(); else if (on) location.reload(); }
+  box.addEventListener('click', function(e){ var b = e.target.closest('[data-consent]'); if (b) choose(b.getAttribute('data-consent')); });
+  document.addEventListener('click', function(e){ if (e.target.closest('[data-consent-open]')) { box.hidden = false; var a = box.querySelector('button'); if (a) a.focus(); } });
+  if (get() === 'granted') load(); else if (get() !== 'denied') box.hidden = false;
+
+  function startTracking(){
+    function sectionOf(el){ var s = el.closest('article[id], section[id], footer[id], .hero'); return s ? (s.id || 'hero') : 'page'; }
+    function place(el){
+      if (el.closest('.rail')) return 'side_rail';
+      if (el.closest('.nav')) return 'header';
+      if (el.closest('.hero')) return 'hero';
+      if (el.closest('.contact .socials')) return 'footer_icons';
+      if (el.closest('.contact')) return 'footer';
+      return sectionOf(el);
+    }
+
+    /* every click on a link, button, badge or carousel card */
+    document.addEventListener('click', function(e){
+      var el = e.target.closest('a, button, .cover-slide'); if (!el || el.closest('#consent')) return;
+      var href = el.getAttribute('href') || '';
+      var label = (el.getAttribute('aria-label') || el.textContent || '').replace(/\s+/g, ' ').trim().slice(0, 80);
+      track('ui_click', { element_label: label, element_type: el.tagName.toLowerCase(), link_target: href.indexOf('data:') === 0 ? 'cv_pdf' : href.slice(0, 100), section_id: sectionOf(el), page_area: place(el) });
+      if (el.hasAttribute('download')) track('cv_download', { page_area: place(el) });
+      else if (href.indexOf('mailto:') === 0) track('contact_click', { method: 'email', page_area: place(el) });
+      else if (href.indexOf('linkedin.com') > -1) track('contact_click', { method: 'linkedin', page_area: place(el) });
+      else if (href.indexOf('wa.me') > -1) track('contact_click', { method: 'whatsapp', page_area: place(el) });
+      if (el.getAttribute('data-track') === 'hero_badge') track('hero_badge_click', { badge: label, target_case_study: href.replace('#', '') });
+    }, true);
+
+    /* time each section is really on screen (counted while it fills a good part of the viewport) */
+    var secs = [].slice.call(document.querySelectorAll('#about, #fun-fact, #education, #experience, #work article[id], #skills, #contact'));
+    var shown = {}, since = {}, total = {}, last = null, sentExit = null;
+    function vis(el){ var r = el.getBoundingClientRect(), h = innerHeight; var v = Math.max(0, Math.min(r.bottom, h) - Math.max(r.top, 0)); return v > 0 && v >= Math.min(r.height * 0.5, h * 0.4); }
+    function tick(){
+      var now = Date.now(), hidden = document.visibilityState !== 'visible';
+      secs.forEach(function(el){
+        var id = el.id, v = !hidden && vis(el);
+        if (v && !shown[id]) { shown[id] = true; since[id] = now; last = id; }
+        else if (!v && shown[id]) { shown[id] = false; total[id] = (total[id] || 0) + (now - since[id]); }
+      });
+    }
+    function flush(){
+      var now = Date.now();
+      secs.forEach(function(el){ var id = el.id; if (shown[id]) { total[id] = (total[id] || 0) + (now - since[id]); since[id] = now; } });
+      Object.keys(total).forEach(function(id){ var sec = Math.round(total[id] / 1000); if (sec >= 1) track('section_time', { section_id: id, seconds: sec, transport_type: 'beacon' }); });
+      total = {};
+      if (last && last !== sentExit) { sentExit = last; track('exit_section', { section_id: last, transport_type: 'beacon' }); }
+    }
+    addEventListener('scroll', tick, { passive: true }); setInterval(tick, 1000); tick();
+    document.addEventListener('visibilitychange', function(){ if (document.visibilityState === 'hidden') flush(); else tick(); });
+    addEventListener('pagehide', flush);
+
+    /* scroll depth: 25 / 50 / 75 / 100 % */
+    var marks = [25, 50, 75, 100], hit = {};
+    function depth(){
+      var d = document.documentElement, pct = (scrollY + innerHeight) / d.scrollHeight * 100;
+      marks.forEach(function(m){ if (pct >= m - 0.5 && !hit[m]) { hit[m] = true; track('scroll_depth', { percent: m }); } });
+    }
+    addEventListener('scroll', depth, { passive: true }); depth();
+
+    /* carousels: each new slide a visitor sees, and how they moved */
+    document.querySelectorAll('[data-cover]').forEach(function(root){
+      var st = root.querySelector('.cover-stage'), name = st.getAttribute('aria-label') || 'carousel', slides = root.querySelectorAll('.cover-slide'), seen = {}, x0 = null;
+      slides.forEach(function(sl, i){ if (sl.getAttribute('data-pos') === '0') seen[i] = true; });
+      new MutationObserver(function(){
+        slides.forEach(function(sl, i){
+          if (sl.getAttribute('data-pos') === '0' && !seen[i]) { seen[i] = true; track('carousel_slide_view', { carousel: name, slide_number: i + 1, slides_total: slides.length, slides_seen: Object.keys(seen).length, section_id: sectionOf(root) }); }
+        });
+      }).observe(root, { subtree: true, attributes: true, attributeFilter: ['data-pos'] });
+      st.addEventListener('keydown', function(e){ if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') track('carousel_move', { carousel: name, method: 'keyboard' }); });
+      st.addEventListener('touchstart', function(e){ x0 = e.touches[0].clientX; }, { passive: true });
+      st.addEventListener('touchend', function(e){ if (x0 !== null && Math.abs(e.changedTouches[0].clientX - x0) > 40) track('carousel_move', { carousel: name, method: 'swipe' }); x0 = null; }, { passive: true });
+    });
   }
 })();
 </script>
